@@ -16,17 +16,20 @@ function Board() {
   const [loading, error, tasks] = useDataFetching('http://localhost:8000/tasks')
 
   return (
-    <div className='Board-wrapper'>
-      {lanes.map((lane) => (
-        <Lane
-          key={lane.id}
-          title={lane.title}
-          loading={loading}
-          tasks={tasks.filter(task => task.lane === lane.id)}
-          error={error}
-        />
-      ))}
-    </div>
+    <>
+      <h2>Board</h2>
+      <div className='Board-wrapper'>
+        {lanes.map((lane) => (
+          <Lane
+            key={lane.id}
+            title={lane.title}
+            loading={loading}
+            tasks={tasks.filter(task => task.lane === lane.id)}
+            error={error}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
